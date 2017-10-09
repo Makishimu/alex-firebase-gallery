@@ -1,0 +1,108 @@
+// Variables
+$header-footer-color: #90a4ae
+$text-color: #49585f
+$bold-text-color: #263238
+$background-color: #eceff1
+$mobile: 768px
+
+
+//Mixins
+@mixin respond-to($media)
+  @if $media == mobile 
+    @media only screen and (max-width: $mobile) 
+    	@content
+
+// Global
+* 
+	margin: 0
+	padding: 0
+
+a, a:visited
+		color: $text-color
+		text-decoration: none
+		cursor: pointer
+a:hover
+	font-weight: bold
+
+html
+	font-family: 'Roboto', sans-serif
+	color: $text-color
+	background-color: $background-color
+
+.block-wrapper
+	width: 80%;
+	margin: auto;
+	overflow: hidden;
+
+.active
+	font-weight: bold
+
+// Header
+header
+	box-sizing: border-box
+	width: 100%
+	min-height: 97px
+	background-color: $header-footer-color
+	box-shadow: 0 0 5px 0px #000
+	padding-left: 30px
+	position: fixed
+	top: 0
+	@include respond-to(mobile)
+		position: static
+		padding-left: 0
+
+
+	#branding
+		float: left
+		@include respond-to(mobile)
+			float: none
+			display: block
+			text-align: center
+		&:hover
+			font-weight: lighter
+
+		.name-proff-block-wrapper
+			display: inline-block
+			vertical-align: top
+			margin: 5px 0  0 10px
+		h1
+			font-size: 35px
+		h2
+			font-size: 30px
+			font-weight: lighter
+
+	li
+		float: left
+		display: inline
+		padding: 0 20px
+		font-size: 30px
+		@include respond-to(mobile)
+			float: none
+
+	nav 
+		float: right
+		margin-top: 30px
+		@include respond-to(mobile)
+			float: none
+			display: block
+			text-align: center
+
+	.current
+		font-weight: bold
+
+//Main part
+main
+	margin-top: 100px
+	height: calc(100vh - 160px)
+	@include respond-to(mobile)
+		margin-top: 0
+
+// Footer
+footer
+	height: 60px;
+	background-color: $header-footer-color
+
+footer .block-wrapper
+	padding: 20px
+	text-align: center
+

@@ -30,7 +30,7 @@ html
 	background-color: $background-color
 
 .block-wrapper
-	width: 80%;
+	width: 95%;
 	margin: auto;
 	overflow: hidden;
 
@@ -43,7 +43,7 @@ header
 	width: 100%
 	min-height: 97px
 	background-color: $header-footer-color
-	box-shadow: 0 0 5px 0px #000
+	box-shadow: 0 0 5px 0px $bold-text-color
 	padding-left: 30px
 	position: fixed
 	top: 0
@@ -93,12 +93,11 @@ header
 //Main part
 main
 	margin-top: 100px
-	height: calc(100vh - 160px)
+	min-height: calc(100vh - 160px)
 	@include respond-to(mobile)
 		margin-top: 0
 
 // Contacts
-
 #contacts
 	padding-top: 40px
 	h2
@@ -116,7 +115,34 @@ main
 		padding-bottom: 15px
 
 .icons
+	padding-top: 10px
 	font-size: 30px
+
+// Gallety
+#gallery
+	padding-top: 5px
+	text-align: center
+
+.gallery-item
+	display: inline-block
+	box-sizing: border-box
+	width: 385px
+	height: 385px
+	padding: 8px
+	vertical-align: top
+	cursor: pointer
+	@include respond-to(mobile)
+		width: 100%
+		height: auto
+
+	&:hover
+		padding: 5px
+		@include respond-to(mobile)
+		padding: 8px
+
+	img
+		width: 100%
+		box-shadow: 0 0 10px 0px $bold-text-color
 
 // Footer
 footer

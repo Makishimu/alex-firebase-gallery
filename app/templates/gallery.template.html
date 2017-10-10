@@ -1,3 +1,5 @@
-<div>
-	fdfdfdfdffdfdfdf
+<div id="gallery" class="block-wrapper">
+	<div class="gallery-item" ng-repeat="image in vm.pictures">
+		<img ng-src="{{image.imgLink}}">
+	</div>
 </div>

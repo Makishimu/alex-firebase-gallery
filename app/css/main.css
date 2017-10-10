@@ -121,12 +121,14 @@ main {
       width: 100%;
       height: auto; } }
   .gallery-item:hover {
-    padding: 5px;
-    padding: 8px; }
+    padding: 0; }
+    @media only screen and (max-width: 768px) {
+      .gallery-item:hover {
+        padding: 8px; } }
   .gallery-item img {
     width: 100%;
-    -webkit-box-shadow: 0 0 10px 0px #263238;
-            box-shadow: 0 0 10px 0px #263238; }
+    -webkit-box-shadow: 0 0 15px 0px #263238;
+            box-shadow: 0 0 15px 0px #263238; }
 
 footer {
   height: 60px;

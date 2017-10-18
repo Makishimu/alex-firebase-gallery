@@ -2,19 +2,20 @@
 <html lang="en" ng-app="alexGalleryApp">
 <head>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
 	<title>Alexander Yakovlev</title>
 
+	<link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 	<link rel="stylesheet" href="css/main.min.css">
 
 	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&amp;subset=cyrillic" rel="stylesheet">
-	<!--  <base href="/"> -->
+	<base href="/">
 </head>
-<body>
-	<div id="gallery-full-size-window">
-		
-	</div>
-	<header ng-controller="headerCtrl as vm">
-		<!-- TODO ui-sref to main page-->
+<body id="body">
+	<header>
 		<a ui-sref="gallery" id="branding">
 				<img src="img/logo.png">
 				<div class="name-proff-block-wrapper">
@@ -24,13 +25,13 @@
 		</a>
 		<nav>
 			<ul>
-				<li ng-class="{'current': vm.selectedState == 'gallery'}">
-					<a ui-sref="gallery" ui-sref-active="gallery">
+				<li>
+					<a ui-sref="gallery" ui-sref-active="current">
 						Gallery
 					</a>
 				</li>
-				<li ng-class="{'current' : vm.selectedState == 'contacts'}">
-					<a ui-sref="contacts" ui-sref-active="contacts">
+				<li>
+					<a ui-sref="contacts" ui-sref-active="current">
 						Contacts
 					</a>
 				</li>

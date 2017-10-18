@@ -1,3 +1,4 @@
+
 // Variables
 $header-footer-color: #90a4ae
 $text-color: #49585f
@@ -30,12 +31,21 @@ html
 	background-color: $background-color
 
 .block-wrapper
-	width: 95%;
-	margin: auto;
-	overflow: hidden;
+	width: 95%
+	margin: auto
+	overflow: hidden
+	@include respond-to(mobile)
+		box-sizing: border-box
+		width: auto
+		padding-left: 5%
+		padding-right: 5%
+
 
 .active
 	font-weight: bold
+
+.open
+	display: block !important
 
 // Header
 header
@@ -47,6 +57,7 @@ header
 	padding-left: 30px
 	position: fixed
 	top: 0
+	z-index: 2
 	@include respond-to(mobile)
 		position: static
 		padding-left: 0
@@ -105,13 +116,16 @@ main
 		margin-bottom: 5px
 	
 .contacts-item
+	font-size: 20px
 	padding-bottom: 10px
+	word-wrap: break-word
 
 .summary
 	border: 1px solid $header-footer-color
 	border-left: none
 	border-right: none
 	p
+		font-size: 20px
 		padding-bottom: 15px
 
 .icons
@@ -144,6 +158,56 @@ main
 		width: 100%
 		box-shadow: 0 0 15px 0px $bold-text-color
 
+.gallery-full-size-window
+	display: none
+	width: 100vw
+	height: 100vh
+	background-color: rgba(0, 0, 0, .85)
+	color: $header-footer-color
+	position: fixed
+	top: 0
+	z-index: 3
+	img
+		height: auto
+		max-height: 100%
+		width: auto
+		max-width: 100%
+		box-shadow: 0 0 10px 0px #071015
+
+	.close-icon
+		width: 50px
+		text-align: center
+		position: absolute
+		right: 70px
+		top: 20px
+		font-size: 50px
+		&:hover
+			font-size: 52px
+			cursor: pointer
+
+	.arrow, .origin-image
+		display: inline-block
+		height: 95%
+		// margin-top: 3%
+		font-size: 100px
+	.arrow
+		box-sizing: border-box
+		width: 9%
+		height: 50vh
+		vertical-align: top
+		text-align: center
+		padding-top: 20vh
+		margin-top: 25vh
+		&:hover
+			background-color: rgba(255, 255, 255, .2)
+			cursor: pointer
+	.origin-image
+		width: 80%
+		text-align: center
+		box-sizing: border-box
+		padding-top: 5%
+
+
 // Footer
 footer
 	height: 60px;
@@ -152,4 +216,3 @@ footer
 footer .block-wrapper
 	padding: 20px
 	text-align: center
-

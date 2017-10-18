@@ -2,9 +2,9 @@
 	<h2>Contacts</h2>
 	<div ng-repeat="contact in vm.User.contacts" class="contacts-item">
 		<span>{{contact.name}}:</span>
-		<a ng-if="contact.type == 'link'" ng-href="{{contact.link}}" target="_blank">{{contact.link}}</a>
-		<a ng-if="contact.type == 'mail'" ng-href="mailto:{{contact.link}}">{{contact.link}}</a>
-		<a ng-if="contact.type == 'skype'" ng-href="callto:{{contact.link}}">{{contact.link}}</a>
+		<a ng-if="contact.reference" ng-href="{{contact.link}}" target="_blank">{{contact.link}}</a>
+		<a ng-if="contact.mail" ng-href="mailto:{{contact.link}}">{{contact.link}}</a>
+		<a ng-if="contact.skype" ng-href="callto:{{contact.link}}">{{contact.link}}</a>
 	</div>
 	<div class="summary">
 		<h2>Summary</h2>

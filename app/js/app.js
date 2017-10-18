@@ -12,24 +12,4 @@
 
 
 // Add angular main module
-app = angular.module('alexGalleryApp',['ngRoute','ui.router']);
-
-app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
-
-	// $locationProvider.html5Mode(true);
-	
-	$urlRouterProvider.otherwise('/gallery');
-
-    $stateProvider
-        .state('gallery', {
-            url: '/gallery',
-            templateUrl: 'templates/gallery.template.html',
-            controller: 'galleryCtrl as vm'
-        })
-    
-        .state('contacts', {
-            url: '/contacts',
-            templateUrl: 'templates/contacts.template.html',
-            controller: 'contactsCtrl as vm'
-        });
-});
+app = angular.module('alexGalleryApp',['ngRoute','ui.router','firebase']);

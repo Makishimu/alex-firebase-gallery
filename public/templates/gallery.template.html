@@ -1,3 +1,17 @@
-<div>
-	fdfdfdfdffdfdfdf
+<div class="gallery-full-size-window" ng-class="{'open' : vm.openGallery}">
+		<i class="fa fa-times-circle-o close-icon" aria-hidden="true" ng-click="vm.closeGalley()"></i>
+		<div class="arrow left-arrow"  ng-click="vm.previousPicture()">
+			<i class="fa fa-angle-left" aria-hidden="true"></i>
+		</div>
+		<div class="origin-image">
+			<img ng-src="{{vm.showedPicture.imgOriginLink}}">
+		</div>
+		<div class="arrow right-arrow" ng-click="vm.nextPicture()">
+			<i class="fa fa-angle-right" aria-hidden="true"></i>
+		</div>
+</div>
+<div id="gallery" class="block-wrapper">
+	<div class="gallery-item" ng-repeat="image in vm.pictures" ng-click="vm.showOriginPicture($index)">
+		<img ng-src="{{image.imgLink}}">
+	</div>
 </div>

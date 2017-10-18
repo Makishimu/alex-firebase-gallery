@@ -1,49 +1,60 @@
-function galleryCtrl(){
+(function(){
+'use strict';
+
+angular.module('alexGalleryApp').controller('galleryCtrl', galleryCtrl);
+
+galleryCtrl.$inject = ['GalleryService'];
+
+function galleryCtrl(GalleryService){
 
 	var vm = this;
 	
-	vm.pictures = [
-		{
-			imgLink : 'img/thumbnails/ArabianJinPre.png'
-		},
-		{
-			imgLink : 'img/thumbnails/ArabianPrincessPre.png'
-		},
-		{
-			imgLink : 'img/thumbnails/GIcharacter2Pre.png'
-		},
-		{
-			imgLink : 'img/thumbnails/GIcharacter3Pre.png'
-		},
-		{
-			imgLink : 'img/thumbnails/GIcharacter4Pre.png'
-		},
-		{
-			imgLink : 'img/thumbnails/GIcharacter5Pre.png'
-		},
-		{
-			imgLink : 'img/thumbnails/GIcharacter6Pre.png'
-		},
-		{
-			imgLink : 'img/thumbnails/GIcharacter7Pre.png'
-		},
-		{
-			imgLink : 'img/thumbnails/GIcharacter8Pre.png'
-		},
-		{
-			imgLink : 'img/thumbnails/GIcharacterPre.png'
-		},
-		{
-			imgLink : 'img/thumbnails/OrbCharacterPre.png'
-		},
-		{
-			imgLink : 'img/thumbnails/VampireHunterPre.png'
-		},
-		{
-			imgLink : 'img/thumbnails/ZeusPre.png'
-		}
-	]
-};
+	vm.openGallery = false;
+	vm.pictures = GalleryService.getWorks();
 
-angular.module('alexGalleryApp')
-		.controller('galleryCtrl', [galleryCtrl]);
+	vm.showedPicture = {
+		imgOriginLink : '',
+		index: 0
+	};
+
+	vm.showOriginPicture = function (index){
+			vm.showedPicture = vm.pictures[index];
+			vm.showedPicture.index = index;
+			vm.openGallery = true;
+			document.getElementById("body").style.overflow = "hidden";
+	};
+
+	vm.nextPicture = function(){
+		var index = parseInt(vm.showedPicture.index);
+
+		if( index < vm.pictures.length - 1){
+			vm.showedPicture = vm.pictures[index + 1];
+			vm.showedPicture.index = index + 1;
+
+		} else {
+			vm.showedPicture = vm.pictures[0];
+			vm.showedPicture.index = 0;
+		}
+		
+	};
+
+	vm.previousPicture = function(){
+		var index = parseInt(vm.showedPicture.index);
+
+		if( index > 0){
+
+			vm.showedPicture = vm.pictures[index - 1];
+			vm.showedPicture.index = index - 1;
+		} else {
+			index = vm.pictures.length - 1;
+			vm.showedPicture = vm.pictures[index];
+			vm.showedPicture.index = index;
+		}
+	};
+
+	vm.closeGalley = function(){
+		vm.openGallery = false;
+		document.getElementById("body").style.overflow = "auto";
+	};
+};
+})();

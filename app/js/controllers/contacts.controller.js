@@ -1,3 +1,9 @@
+angular
+	.module('alexGalleryApp')
+	.controller('contactsCtrl', [contactsCtrl]);
+
+	contactsCtrl.$inject = [];
+
 function contactsCtrl(){
 
 	var vm = this;
@@ -7,28 +13,39 @@ function contactsCtrl(){
 			{
 				name: 'eMail',
 				link: 'fvhol32167@gmail.com',
-				type: 'mail'
+				reference: false,
+				mail: true,
+				skype: false
 			},
 			{
 				name: 'Skype',
 				link: 'fvholl',
-				type: 'skype'
+				reference: false,
+				mail: false,
+				skype: true
 			},
 			{
 				name: 'VK',
 				link: 'https://vk.com/id21650873',
-				type: 'link'
+				reference: true,
+				mail: false,
+				skype: false
 			},
 			{
 				name: 'Facebook',
 				link: 'https://www.facebook.com/alexander.yakovlev.104',
-				type: 'link'
-			},
-			{
-				name: 'Web',
-				link: 'https://alexart.com',
-				type: 'link'
+				reference: true,
+				mail: false,
+				skype: false
 			}
+			// ,
+			// {
+			// 	name: 'Web',
+			// 	link: 'https://alexart.com',
+			// 	reference: true,
+			//	mail: false,
+			//	skype: false
+			// }
 		],
 		icons : [
 			{
@@ -54,6 +71,3 @@ function contactsCtrl(){
 		]
 	}
 };
-
-angular.module('alexGalleryApp')
-		.controller('contactsCtrl', [contactsCtrl]);

@@ -6,7 +6,6 @@ var gulp      = require('gulp'),
     gulpif    = require('gulp-if'),
     uglify    = require('gulp-uglify'),
     minifyCss = require('gulp-csso');
-	imagemin  = require('gulp-imagemin');
 
 // server
 gulp.task('serv', function(){
@@ -14,7 +13,7 @@ gulp.task('serv', function(){
 	// gulp.src('public')
 	.pipe(server({
 		livereload: true,
-		port: 1488
+		port: 3000
 	}));
 });
 
@@ -28,30 +27,16 @@ gulp.task('style', function(){
 		.pipe(gulp.dest('app/css'));
 });
 
-// image minification
-gulp.task('image', function(){
-    var thumbnails = 
-    gulp.src('app/img/thumbnails/*')
-        .pipe(imagemin())
-        .pipe(gulp.dest('public/img/thumbnails'));
-
-    var image = 
-    gulp.src('app/img/*')
-        .pipe(imagemin())
-        .pipe(gulp.dest('public/img'));
-});
-
 //watch on sass files changes
 gulp.task('watch', function(){
 	gulp.watch('app/sass/**/*.sass', ['style']);
-	gulp.watch('app/img/thumbnails/*', ['image']);
 })
 
 // run as 'gulp' in console
 gulp.task('default', ['serv', 'watch'])
 
 // gulp build
-gulp.task('build', ['image'], function () {
+gulp.task('build', function () {
     var buildIndex = 
     	gulp.src('app/*.html')
         .pipe(useref())

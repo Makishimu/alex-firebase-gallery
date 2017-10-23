@@ -14,10 +14,7 @@
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/gallery');
     $qProvider.errorOnUnhandledRejections(false);
-    $locationProvider.html5Mode({
-      enabled: true,
-      requireBase: false
-    });
+    $locationProvider.html5Mode(true)
 
     $urlRouterProvider.rule(function($injector, $location) {
       var path = $location.path();
@@ -33,11 +30,13 @@
    * State Controllers
    * */
   var gallery = {
+    name: 'gallery',
     url: '/gallery',
     templateUrl: 'templates/gallery.template.html',
     controller: 'galleryCtrl as vm'
   },
   contacts = {
+    name: 'contacts',
     url: '/contacts',
     templateUrl: 'templates/contacts.template.html',
     controller: 'contactsCtrl as vm'

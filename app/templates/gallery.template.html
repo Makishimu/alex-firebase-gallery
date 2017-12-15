@@ -11,7 +11,7 @@
 		</div>
 </div>
 <div id="gallery" class="block-wrapper">
-	<div class="gallery-item" ng-repeat="image in vm.pictures" ng-click="vm.showOriginPicture($index)">
-		<img ng-src="{{image.imgLink}}">
+	<div class="gallery-item" ng-repeat="item in vm.pictures" ng-click="vm.showOriginPicture($index)">
+		<img ng-src="{{item.imgLink}}">
 	</div>
 </div>

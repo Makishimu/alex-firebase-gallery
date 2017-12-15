@@ -8,6 +8,8 @@
 
 	var galleryWorksRef = firebase.database().ref().child("gallery");
 
+	var array = $firebaseArray(galleryWorksRef);
+
 	gallery.getWorks = function(){
 		return $firebaseArray(galleryWorksRef);
 	}

@@ -137,6 +137,9 @@ main {
   display: inline-block;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  background-image: url(/img/bg-logo.png);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
   width: 385px;
   height: 385px;
   padding: 8px;
@@ -169,6 +172,9 @@ main {
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.85);
+  background-image: url(/img/bg-logo.png);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
   color: #90a4ae;
   position: fixed;
   top: 0;
